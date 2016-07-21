@@ -21,7 +21,6 @@ var
  */
 function CMobileSyncSettingsPaneView()
 {
-	
 	this.oFilesMobileSyncSettingsView = ModulesManager.run('FilesClient', 'getMobileSyncSettingsView');
 	this.oCalendarMobileSyncSettingsView = ModulesManager.run('CalendarClient', 'getMobileSyncSettingsView');
 	this.oContactsMobileSyncSettingsView = ModulesManager.run('ContactsClient', 'getMobileSyncSettingsView');
@@ -38,15 +37,15 @@ function CMobileSyncSettingsPaneView()
 	this.visibleDavViaUrls = ko.computed(function () {
 		return !!this.oCalendarMobileSyncSettingsView && this.oCalendarMobileSyncSettingsView.visible() || !!this.oContactsMobileSyncSettingsView;
 	}, this);
-
-	this.credentialsHintText = ko.observable(TextUtils.i18n('CORECLIENT/INFO_MOBILE_CREDENTIALS', {'EMAIL': App.defaultAccountEmail()}));
+	
+	this.sCredentialsHintText = TextUtils.getMobileCredentialsInfo(App);
 }
 
 CMobileSyncSettingsPaneView.prototype.ViewTemplate = '%ModuleName%_MobileSyncSettingsPaneView';
 
 CMobileSyncSettingsPaneView.prototype.onRoute = function ()
 {
-	Ajax.send(Settings.ServerModuleName, 'GetInfo', this.onGetInfoResponse, this);
+	Ajax.send(Settings.ServerModuleName, 'GetInfo', null, this.onGetInfoResponse, this);
 };
 
 /**
