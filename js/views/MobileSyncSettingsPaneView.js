@@ -29,6 +29,12 @@ function CMobileSyncSettingsPaneView()
 	
 	this.enableDav = ko.observable(false);
 	
+	this.showSyncViaUrlSection = ko.computed(function () {
+		return this.enableDav() && (ModulesManager.isModuleEnabled('CalendarClient') || ModulesManager.isModuleEnabled('ContactsClient'));
+	}, this);
+	
+	this.sSyncViaUrlSectionInfo = this.getSyncViaUrlSectionInfo();
+	
 	this.davServer = ko.observable('');
 	
 	this.bIosDevice = Browser.iosDevice;
@@ -46,6 +52,33 @@ CMobileSyncSettingsPaneView.prototype.ViewTemplate = '%ModuleName%_MobileSyncSet
 CMobileSyncSettingsPaneView.prototype.onRoute = function ()
 {
 	Ajax.send(Settings.ServerModuleName, 'GetInfo', null, this.onGetInfoResponse, this);
+};
+
+/**
+ * Returns info text for "Sync via URL" section
+ * 
+ * @returns {String}
+ */
+CMobileSyncSettingsPaneView.prototype.getSyncViaUrlSectionInfo = function ()
+{
+	var
+		bAllowCalendar = ModulesManager.isModuleEnabled('CalendarClient'),
+		bAllowContacts = ModulesManager.isModuleEnabled('ContactsClient')
+	;
+	
+	if (bAllowCalendar && bAllowContacts)
+	{
+		return TextUtils.i18n('%MODULENAME%/INFO_DAVSYNC');
+	}
+	if (bAllowCalendar)
+	{
+		return TextUtils.i18n('%MODULENAME%/INFO_DAVSYNC_CALENDAR_ONLY');
+	}
+	if (bAllowContacts)
+	{
+		return TextUtils.i18n('%MODULENAME%/INFO_DAVSYNC_CONTACTS_ONLY');
+	}
+	return '';
 };
 
 /**
