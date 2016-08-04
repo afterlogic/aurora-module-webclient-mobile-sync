@@ -4,8 +4,16 @@
 
 <div class="panel_center">
 	<div class="fields">
-		
-		<!-- ko template: {name: oResetPasswordViewModel.ViewTemplate, data: oResetPasswordViewModel} --><!-- /ko -->
+		<div class="fieldset" data-bind="visible: visibleSetLoginPassButton">
+			<div class="hint">
+				<span data-bind="i18n: {'key': '%MODULENAME%/INFO_SET_LOGIN_PASS'}"></span>
+			</div>
+			<div class="buttons" style="text-align: left; margin-bottom: 0;">
+				<a href="#settings/basicauth-accounts" class="button">
+					<span data-bind="i18n: {'key': '%MODULENAME%/ACTION_SET_LOGIN_PASS'}"></span>
+				</a>
+			</div>
+		</div>
 		
 		<div class="fieldset" data-bind="visible: showSyncViaUrlSection">
 			<h2 class="subheading" data-bind="i18n: {'key': '%MODULENAME%/HEADING_DAVSYNC'}"></h2>

@@ -1,6 +1,7 @@
 'use strict';
 
 var
+	_ = require('underscore'),
 	$ = require('jquery'),
 	ko = require('knockout'),
 	
@@ -25,7 +26,7 @@ function CMobileSyncSettingsPaneView()
 	this.oCalendarMobileSyncSettingsView = ModulesManager.run('CalendarClient', 'getMobileSyncSettingsView');
 	this.oContactsMobileSyncSettingsView = ModulesManager.run('ContactsClient', 'getMobileSyncSettingsView');
 	
-	this.oResetPasswordViewModel = ModulesManager.run('ChangePasswordClient', 'getResetPasswordView');
+	this.visibleSetLoginPassButton = ko.observable(false);
 	
 	this.enableDav = ko.observable(false);
 	
@@ -115,6 +116,11 @@ CMobileSyncSettingsPaneView.prototype.onGetInfoResponse = function (oResponse, o
 			{
 				this.oContactsMobileSyncSettingsView.populate(oDav);
 			}
+		}
+		
+		if (!_.isArray(oResult.LoginList) || oResult.LoginList.length === 0)
+		{
+			this.visibleSetLoginPassButton(true);
 		}
 	}
 };
