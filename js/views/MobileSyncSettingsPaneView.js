@@ -50,6 +50,14 @@ function CMobileSyncSettingsPaneView()
 
 CMobileSyncSettingsPaneView.prototype.ViewTemplate = '%ModuleName%_MobileSyncSettingsPaneView';
 
+/**
+ * Opens settings tab that can create account to authenticate.
+ */
+CMobileSyncSettingsPaneView.prototype.setLoginPass = function ()
+{
+	App.broadcastEvent('OpenAuthAccountSettingTab');
+};
+
 CMobileSyncSettingsPaneView.prototype.onRoute = function ()
 {
 	Ajax.send(Settings.ServerModuleName, 'GetInfo', null, this.onGetInfoResponse, this);
