@@ -26,7 +26,7 @@ function CMobileSyncSettingsPaneView()
 	this.oCalendarMobileSyncSettingsView = ModulesManager.run('CalendarClient', 'getMobileSyncSettingsView');
 	this.oContactsMobileSyncSettingsView = ModulesManager.run('ContactsClient', 'getMobileSyncSettingsView');
 	
-	this.visibleSetLoginPassButton = ko.observable(false);
+	this.oCreateLoginPasswordView = ModulesManager.run('ExternalServices', 'getCreateLoginPasswordView');
 	
 	this.enableDav = ko.observable(false);
 	
@@ -49,14 +49,6 @@ function CMobileSyncSettingsPaneView()
 }
 
 CMobileSyncSettingsPaneView.prototype.ViewTemplate = '%ModuleName%_MobileSyncSettingsPaneView';
-
-/**
- * Opens settings tab that can create account to authenticate.
- */
-CMobileSyncSettingsPaneView.prototype.setLoginPass = function ()
-{
-	App.broadcastEvent('OpenAuthAccountSettingTab');
-};
 
 CMobileSyncSettingsPaneView.prototype.onRoute = function ()
 {
