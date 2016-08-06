@@ -117,11 +117,6 @@ CMobileSyncSettingsPaneView.prototype.onGetInfoResponse = function (oResponse, o
 				this.oContactsMobileSyncSettingsView.populate(oDav);
 			}
 		}
-		
-		if (!_.isArray(oResult.LoginList) || oResult.LoginList.length === 0)
-		{
-			this.visibleSetLoginPassButton(true);
-		}
 	}
 };
 
