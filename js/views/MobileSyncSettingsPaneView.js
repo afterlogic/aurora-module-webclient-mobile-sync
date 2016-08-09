@@ -26,7 +26,7 @@ function CMobileSyncSettingsPaneView()
 	this.oCalendarMobileSyncSettingsView = ModulesManager.run('CalendarWebclient', 'getMobileSyncSettingsView');
 	this.oContactsMobileSyncSettingsView = ModulesManager.run('ContactsWebclient', 'getMobileSyncSettingsView');
 	
-	this.oCreateLoginPasswordView = ModulesManager.run('ExternalServices', 'getCreateLoginPasswordView');
+	this.oCreateLoginPasswordView = ModulesManager.run('OAuthIntegratorWebclient', 'getCreateLoginPasswordView');
 	
 	this.enableDav = ko.observable(false);
 	
