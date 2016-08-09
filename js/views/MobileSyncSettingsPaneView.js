@@ -22,16 +22,16 @@ var
  */
 function CMobileSyncSettingsPaneView()
 {
-	this.oFilesMobileSyncSettingsView = ModulesManager.run('FilesClient', 'getMobileSyncSettingsView');
-	this.oCalendarMobileSyncSettingsView = ModulesManager.run('CalendarClient', 'getMobileSyncSettingsView');
-	this.oContactsMobileSyncSettingsView = ModulesManager.run('ContactsClient', 'getMobileSyncSettingsView');
+	this.oFilesMobileSyncSettingsView = ModulesManager.run('FilesWebclient', 'getMobileSyncSettingsView');
+	this.oCalendarMobileSyncSettingsView = ModulesManager.run('CalendarWebclient', 'getMobileSyncSettingsView');
+	this.oContactsMobileSyncSettingsView = ModulesManager.run('ContactsWebclient', 'getMobileSyncSettingsView');
 	
 	this.oCreateLoginPasswordView = ModulesManager.run('ExternalServices', 'getCreateLoginPasswordView');
 	
 	this.enableDav = ko.observable(false);
 	
 	this.showSyncViaUrlSection = ko.computed(function () {
-		return this.enableDav() && (ModulesManager.isModuleEnabled('CalendarClient') || ModulesManager.isModuleEnabled('ContactsClient'));
+		return this.enableDav() && (ModulesManager.isModuleEnabled('CalendarWebclient') || ModulesManager.isModuleEnabled('ContactsWebclient'));
 	}, this);
 	
 	this.sSyncViaUrlSectionInfo = this.getSyncViaUrlSectionInfo();
@@ -63,8 +63,8 @@ CMobileSyncSettingsPaneView.prototype.onRoute = function ()
 CMobileSyncSettingsPaneView.prototype.getSyncViaUrlSectionInfo = function ()
 {
 	var
-		bAllowCalendar = ModulesManager.isModuleEnabled('CalendarClient'),
-		bAllowContacts = ModulesManager.isModuleEnabled('ContactsClient')
+		bAllowCalendar = ModulesManager.isModuleEnabled('CalendarWebclient'),
+		bAllowContacts = ModulesManager.isModuleEnabled('ContactsWebclient')
 	;
 	
 	if (bAllowCalendar && bAllowContacts)
