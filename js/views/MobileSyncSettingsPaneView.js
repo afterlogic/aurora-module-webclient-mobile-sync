@@ -1,7 +1,6 @@
 'use strict';
 
 var
-	_ = require('underscore'),
 	$ = require('jquery'),
 	ko = require('knockout'),
 	
@@ -45,7 +44,9 @@ function CMobileSyncSettingsPaneView()
 		return !!this.oCalendarMobileSyncSettingsView && this.oCalendarMobileSyncSettingsView.visible() || !!this.oContactsMobileSyncSettingsView;
 	}, this);
 	
-	this.sCredentialsHintText = TextUtils.getMobileCredentialsInfo(App);
+	this.credentialsHintText = ko.computed(function () {
+		return TextUtils.i18n('COREWEBCLIENT/INFO_MOBILE_CREDENTIALS', {'LOGIN': App.userAccountLogin()});
+	}, this);
 }
 
 CMobileSyncSettingsPaneView.prototype.ViewTemplate = '%ModuleName%_MobileSyncSettingsPaneView';

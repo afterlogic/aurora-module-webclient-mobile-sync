@@ -15,7 +15,7 @@
 				<span class="label" data-bind="i18n: {'key': '%MODULENAME%/LABEL_DAV_SERVER'}"></span>
 				<span class="value" data-bind="text: davServer"></span>
 			</div>
-			<div class="hint" data-bind="text: sCredentialsHintText"></div>
+			<div class="hint" data-bind="html: credentialsHintText"></div>
 			<div class="hint" data-bind="i18n: {'key': 'COREWEBCLIENT/INFO_DEMO_MOBILE_CREDENTIALS_HTML', 'type': 'html'}, visible: bDemo"></div>
 		</div>
 		
@@ -40,7 +40,7 @@
 		
 			<!-- ko template: {name: oContactsMobileSyncSettingsView.ViewTemplate, data: oContactsMobileSyncSettingsView} --><!-- /ko -->
 			
-			<div class="hint" data-bind="text: sCredentialsHintText"></div>
+			<div class="hint" data-bind="html: credentialsHintText"></div>
 			<div class="hint" data-bind="i18n: {'key': 'COREWEBCLIENT/INFO_DEMO_MOBILE_CREDENTIALS_HTML', 'type': 'html'}, visible: bDemo"></div>
 		</div>
 		
