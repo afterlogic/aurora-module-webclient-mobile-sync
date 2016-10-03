@@ -45,7 +45,6 @@ function CMobileSyncSettingsPaneView()
 	}, this);
 	
 	this.credentialsHintText = ko.computed(function () {
-		console.log('MS', App.userAccountLogin(), TextUtils.i18n('COREWEBCLIENT/INFO_MOBILE_CREDENTIALS'));
 		return TextUtils.i18n('COREWEBCLIENT/INFO_MOBILE_CREDENTIALS', {'LOGIN': App.userAccountLogin()});
 	}, this);
 }
