@@ -47,6 +47,8 @@ function CMobileSyncSettingsPaneView()
 	this.credentialsHintText = ko.computed(function () {
 		return TextUtils.i18n('COREWEBCLIENT/INFO_MOBILE_CREDENTIALS', {'LOGIN': App.userAccountLogin()});
 	}, this);
+		console.log('++ App.userAccountLogin()', App.userAccountLogin());
+		console.log('++ this.credentialsHintText', this.credentialsHintText());
 	this.credentialsHintText.subscribe(function () {
 		console.log('+ App.userAccountLogin()', App.userAccountLogin());
 		console.log('+ this.credentialsHintText', this.credentialsHintText());
