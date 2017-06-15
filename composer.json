@@ -5,6 +5,8 @@
 		"afterlogic/aurora-framework": "~0.4"
 	},
 	"extra": {
-		"installer-name": "MobileSyncWebclient"
+		"installer-name": "MobileSyncWebclient",
+		"include-in-mobile": false,
+		"include-in-desktop": true
 	}
 }
