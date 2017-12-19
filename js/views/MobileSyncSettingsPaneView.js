@@ -51,7 +51,7 @@ function CMobileSyncSettingsPaneView()
 
 CMobileSyncSettingsPaneView.prototype.ViewTemplate = '%ModuleName%_MobileSyncSettingsPaneView';
 
-CMobileSyncSettingsPaneView.prototype.onRoute = function ()
+CMobileSyncSettingsPaneView.prototype.showTab = function ()
 {
 	Ajax.send(Settings.ServerModuleName, 'GetInfo', null, this.onGetInfoResponse, this);
 };
