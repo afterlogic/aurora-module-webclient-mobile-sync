@@ -44,9 +44,7 @@ function CMobileSyncSettingsPaneView()
 		return !!this.oCalendarMobileSyncSettingsView && this.oCalendarMobileSyncSettingsView.visible() || !!this.oContactsMobileSyncSettingsView;
 	}, this);
 	
-	this.credentialsHintText = ko.computed(function () {
-		return TextUtils.i18n('COREWEBCLIENT/INFO_MOBILE_CREDENTIALS', {'LOGIN': App.userPublicId()});
-	}, this);
+	this.credentialsHintText = App.mobileCredentialsHintText;
 }
 
 CMobileSyncSettingsPaneView.prototype.ViewTemplate = '%ModuleName%_MobileSyncSettingsPaneView';
