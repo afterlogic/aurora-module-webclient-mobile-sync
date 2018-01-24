@@ -9,14 +9,20 @@
 		
 		<div class="fieldset" data-bind="visible: showSyncViaUrlSection">
 			<h2 class="subheading" data-bind="i18n: {'key': '%MODULENAME%/HEADING_DAVSYNC'}"></h2>
-			<div class="hint" data-bind="text: sSyncViaUrlSectionInfo"></div>
-			
+			<div class="row">
+				<div class="hint" data-bind="text: sSyncViaUrlSectionInfo"></div>
+			</div>
 			<div class="row">
 				<span class="label" data-bind="i18n: {'key': '%MODULENAME%/LABEL_DAV_SERVER'}"></span>
 				<span class="value" data-bind="text: davServer"></span>
 			</div>
-			<div class="hint" data-bind="html: credentialsHintText"></div>
-			<div class="hint" data-bind="i18n: {'key': 'COREWEBCLIENT/INFO_DEMO_MOBILE_CREDENTIALS_HTML', 'type': 'html'}, visible: bDemo"></div>
+			<div class="row">
+				<div class="hint" data-bind="html: credentialsHintText"></div>
+				<div class="hint" data-bind="i18n: {'key': 'COREWEBCLIENT/INFO_DEMO_MOBILE_CREDENTIALS_HTML', 'type': 'html'}, visible: bDemo"></div>
+			</div>
+			<div class="row" data-bind="visible: !bIosDevice">
+				<div class="hint" data-bind="text: sSyncViaUrlIOSDeviceSectionInfo"></div>
+			</div>
 		</div>
 		
 		<div class="fieldset ios_profile" data-bind="visible: bIosDevice">

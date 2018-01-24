@@ -5,6 +5,7 @@ var
 	ko = require('knockout'),
 	
 	TextUtils = require('%PathToCoreWebclientModule%/js/utils/Text.js'),
+	UrlUtils = require('%PathToCoreWebclientModule%/js/utils/Url.js'),
 	
 	Ajax = require('%PathToCoreWebclientModule%/js/Ajax.js'),
 	Api = require('%PathToCoreWebclientModule%/js/Api.js'),
@@ -34,6 +35,9 @@ function CMobileSyncSettingsPaneView()
 	}, this);
 	
 	this.sSyncViaUrlSectionInfo = this.getSyncViaUrlSectionInfo();
+	this.sSyncViaUrlIOSDeviceSectionInfo = TextUtils.i18n('%MODULENAME%/INFO_DAVSYNC_IOS_DEVICE', {
+		'WEBMAIL_URL': UrlUtils.getAppPath()
+	});
 	
 	this.davServer = ko.observable('');
 	
