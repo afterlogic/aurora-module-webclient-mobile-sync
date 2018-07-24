@@ -38,13 +38,13 @@
 			</div>
 		</div>
 		
-		<!-- ko template: {name: oCalendarMobileSyncSettingsView.ViewTemplate, data: oCalendarMobileSyncSettingsView} --><!-- /ko -->
-			
 		<div class="fieldset" data-bind="visible: visibleDavViaUrls">
 			<h2 class="subheading" data-bind="i18n: {'key': '%MODULENAME%/HEADING_DAVSYNC_URLS'}"></h2>
 			<div class="hint" data-bind="i18n: {'key': '%MODULENAME%/INFO_DAVSYNC_URLS'}"></div>
 		
 			<!-- ko template: {name: oContactsMobileSyncSettingsView.ViewTemplate, data: oContactsMobileSyncSettingsView} --><!-- /ko -->
+			
+			<!-- ko template: {name: oCalendarMobileSyncSettingsView.ViewTemplate, data: oCalendarMobileSyncSettingsView} --><!-- /ko -->
 			
 			<div class="hint" data-bind="html: credentialsHintText"></div>
 			<div class="hint" data-bind="i18n: {'key': 'COREWEBCLIENT/INFO_DEMO_MOBILE_CREDENTIALS_HTML', 'type': 'html'}, visible: bDemo"></div>
