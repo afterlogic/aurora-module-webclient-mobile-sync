@@ -22,6 +22,7 @@ var
  */
 function CMobileSyncSettingsPaneView()
 {
+	this.oMailMobileSyncSettingsView = ModulesManager.run('MailWebclient', 'getMobileSyncSettingsView');
 	this.oFilesMobileSyncSettingsView = ModulesManager.run('FilesWebclient', 'getMobileSyncSettingsView');
 	this.oCalendarMobileSyncSettingsView = ModulesManager.run('CalendarWebclient', 'getMobileSyncSettingsView');
 	this.oContactsMobileSyncSettingsView = ModulesManager.run('ContactsWebclient', 'getMobileSyncSettingsView');
