@@ -5,12 +5,18 @@ module.exports = function (oAppData) {
 		TextUtils = require('%PathToCoreWebclientModule%/js/utils/Text.js'),
 		
 		App = require('%PathToCoreWebclientModule%/js/App.js'),
+		ModulesManager = require('%PathToCoreWebclientModule%/js/ModulesManager.js'),
 
 		Settings = require('modules/%ModuleName%/js/Settings.js')
 	;
 	
 	Settings.init(oAppData);
 
+	if (!ModulesManager.isModuleAvailable(Settings.ServerModuleName))
+	{
+		return null;
+	}
+	
 	if (App.isUserNormalOrTenant())
 	{
 		return {
