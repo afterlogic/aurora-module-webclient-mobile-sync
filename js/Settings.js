@@ -15,7 +15,7 @@ module.exports = {
 	
 	/**
 	 * Initializes settings from AppData object sections.
-	 * 
+	 *
 	 * @param {Object} oAppData Object contained modules settings.
 	 */
 	init: function (oAppData)
@@ -30,7 +30,7 @@ module.exports = {
 	
 	/**
 	 * Updates new settings values after saving on server.
-	 * 
+	 *
 	 * @param {string} sExternalHostNameOfDAVServer
 	 */
 	update: function (sExternalHostNameOfDAVServer)
