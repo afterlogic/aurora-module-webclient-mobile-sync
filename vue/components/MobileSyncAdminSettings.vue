@@ -25,16 +25,16 @@
 </template>
 
 <script>
-import settings from "../../../MobileSyncWebclient/vue/settings";
+import settings from '../../../MobileSyncWebclient/vue/settings'
 import UnsavedChangesDialog from 'src/components/UnsavedChangesDialog'
-import webApi from "../../../AdminPanelWebclient/vue/src/utils/web-api";
-import notification from "../../../AdminPanelWebclient/vue/src/utils/notification";
-import errors from "../../../AdminPanelWebclient/vue/src/utils/errors";
-import _ from "lodash";
+import webApi from 'src/utils/web-api'
+import notification from 'src/utils/notification'
+import errors from 'src/utils/errors'
+import _ from 'lodash';
 
 export default {
-  name: "MobileSyncAdminSettings",
-  data() {
+  name: 'MobileSyncAdminSettings',
+  data () {
     return {
       saving: false,
       externalHostNameOfDAVServer: ''
@@ -43,10 +43,10 @@ export default {
   components: {
     UnsavedChangesDialog
   },
-  mounted() {
+  mounted () {
     this.populate()
   },
-  beforeRouteLeave(to, from, next) {
+  beforeRouteLeave (to, from, next) {
     if (this.hasChanges() && _.isFunction(this?.$refs?.unsavedChangesDialog?.openConfirmDiscardChangesDialog)) {
       this.$refs.unsavedChangesDialog.openConfirmDiscardChangesDialog(next)
     } else {
@@ -54,15 +54,15 @@ export default {
     }
   },
   methods: {
-    hasChanges() {
+    hasChanges () {
       const data = settings.getMobileSyncSettings()
       return this.externalHostNameOfDAVServer !== data.ExternalHostNameOfDAVServer
     },
-    populate() {
+    populate () {
       const data = settings.getMobileSyncSettings()
       this.externalHostNameOfDAVServer = data.ExternalHostNameOfDAVServer
     },
-    save() {
+    save () {
       if (!this.saving) {
         this.saving = true
         const parameters = {
