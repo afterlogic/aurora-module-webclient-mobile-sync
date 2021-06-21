@@ -7,7 +7,7 @@ class MobileSyncSettings {
     const mobileSyncWebclientData = typesUtils.pObject(appData.Dav)
     console.log(mobileSyncWebclientData, 'mobileSyncWebclientData')
     if (!_.isEmpty(mobileSyncWebclientData)) {
-      this.externalHostNameOfDAVServer = mobileSyncWebclientData.ExternalHostNameOfDAVServer
+      this.externalHostNameOfDAVServer = typesUtils.pString(mobileSyncWebclientData.ExternalHostNameOfDAVServer)
     }
   }
 
