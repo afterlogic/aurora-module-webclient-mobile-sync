@@ -5,10 +5,7 @@ import typesUtils from 'src/utils/types'
 class MobileSyncSettings {
   constructor (appData) {
     const mobileSyncWebclientData = typesUtils.pObject(appData.Dav)
-    console.log(mobileSyncWebclientData, 'mobileSyncWebclientData')
-    if (!_.isEmpty(mobileSyncWebclientData)) {
-      this.externalHostNameOfDAVServer = typesUtils.pString(mobileSyncWebclientData.ExternalHostNameOfDAVServer)
-    }
+    this.externalHostNameOfDAVServer = typesUtils.pString(mobileSyncWebclientData?.ExternalHostNameOfDAVServer)
   }
 
   saveMobileSyncSettings ({ ExternalHostNameOfDAVServer }) {
