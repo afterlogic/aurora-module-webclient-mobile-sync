@@ -15,7 +15,7 @@ export default {
         tabName: 'mobilesync',
         title: 'MOBILESYNCWEBCLIENT.LABEL_SETTINGS_TAB',
         component () {
-          return import('src/../../../MobileSyncWebclient/vue/components/MobileSyncAdminSettings')
+          return import('./components/MobileSyncAdminSettings')
         },
       },
     ]
