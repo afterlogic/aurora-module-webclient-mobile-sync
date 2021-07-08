@@ -9,7 +9,7 @@
           <div class="row">
             <div class="col-2 q-my-sm" v-t="'MOBILESYNCWEBCLIENT.LABEL_DAV_SERVER'"></div>
             <div class="col-5">
-              <q-input outlined dense class="bg-white" v-model="externalHostNameOfDAVServer"/>
+              <q-input outlined dense bg-color="white" v-model="externalHostNameOfDAVServer"/>
             </div>
           </div>
         </q-card-section>
