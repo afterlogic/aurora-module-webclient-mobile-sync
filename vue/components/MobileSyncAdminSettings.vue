@@ -20,44 +20,52 @@
         </q-btn>
       </div>
     </div>
-    <UnsavedChangesDialog ref="unsavedChangesDialog"/>
   </q-scroll-area>
 </template>
 
 <script>
-import settings from '../../../MobileSyncWebclient/vue/settings'
-import UnsavedChangesDialog from 'src/components/UnsavedChangesDialog'
-import webApi from 'src/utils/web-api'
 import notification from 'src/utils/notification'
 import errors from 'src/utils/errors'
-import _ from 'lodash'
+import webApi from 'src/utils/web-api'
+
+import settings from '../settings'
 
 export default {
   name: 'MobileSyncAdminSettings',
+
   data () {
     return {
       saving: false,
       externalHostNameOfDAVServer: ''
     }
   },
-  components: {
-    UnsavedChangesDialog
-  },
+
   mounted () {
     this.populate()
   },
+
   beforeRouteLeave (to, from, next) {
-    if (this.hasChanges() && _.isFunction(this?.$refs?.unsavedChangesDialog?.openConfirmDiscardChangesDialog)) {
-      this.$refs.unsavedChangesDialog.openConfirmDiscardChangesDialog(next)
-    } else {
-      next()
-    }
+    this.doBeforeRouteLeave(to, from, next)
   },
+
   methods: {
+    /**
+     * Method is used in doBeforeRouteLeave mixin
+     */
     hasChanges () {
       const data = settings.getMobileSyncSettings()
       return this.externalHostNameOfDAVServer !== data.ExternalHostNameOfDAVServer
     },
+
+    /**
+     * Method is used in doBeforeRouteLeave mixin,
+     * do not use async methods - just simple and plain reverting of values
+     * !! hasChanges method must return true after executing revertChanges method
+     */
+    revertChanges () {
+      this.populate()
+    },
+
     populate () {
       const data = settings.getMobileSyncSettings()
       this.externalHostNameOfDAVServer = data.ExternalHostNameOfDAVServer
