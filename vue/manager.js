@@ -13,10 +13,10 @@ export default {
     return [
       {
         tabName: 'mobilesync',
-        title: 'MOBILESYNCWEBCLIENT.LABEL_SETTINGS_TAB',
-        component () {
-          return import('./components/MobileSyncAdminSettings')
-        },
+        tabTitle: 'MOBILESYNCWEBCLIENT.LABEL_SETTINGS_TAB',
+        tabRouteChildren: [
+          { path: 'mobilesync', component: () => import('./components/MobileSyncAdminSettings') },
+        ],
       },
     ]
   },
