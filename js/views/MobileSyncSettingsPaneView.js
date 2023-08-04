@@ -1,7 +1,7 @@
 'use strict';
 
 var
-	$ = require('jquery'),
+	_ = require('underscore'),
 	ko = require('knockout'),
 	
 	TextUtils = require('%PathToCoreWebclientModule%/js/utils/Text.js'),
@@ -108,15 +108,15 @@ CMobileSyncSettingsPaneView.prototype.onGetInfoResponse = function (oResponse, o
 		if (this.enableDav() && oDav)
 		{
 			this.davServer(oDav.Server);
-			if (this.oFilesMobileSyncSettingsView && $.isFunction(this.oFilesMobileSyncSettingsView.populate))
+			if (this.oFilesMobileSyncSettingsView && _.isFunction(this.oFilesMobileSyncSettingsView.populate))
 			{
 				this.oFilesMobileSyncSettingsView.populate(oDav);
 			}
-			if (this.oCalendarMobileSyncSettingsView && $.isFunction(this.oCalendarMobileSyncSettingsView.populate))
+			if (this.oCalendarMobileSyncSettingsView && _.isFunction(this.oCalendarMobileSyncSettingsView.populate))
 			{
 				this.oCalendarMobileSyncSettingsView.populate(oDav);
 			}
-			if (this.oContactsMobileSyncSettingsView && $.isFunction(this.oContactsMobileSyncSettingsView.populate))
+			if (this.oContactsMobileSyncSettingsView && _.isFunction(this.oContactsMobileSyncSettingsView.populate))
 			{
 				this.oContactsMobileSyncSettingsView.populate(oDav);
 			}
