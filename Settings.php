@@ -11,6 +11,7 @@ use Aurora\System\SettingsProperty;
 
 /**
  * @property bool $Disabled
+ * @property bool $IncludeInMobile
  */
 
 class Settings extends \Aurora\System\Module\Settings
@@ -23,6 +24,12 @@ class Settings extends \Aurora\System\Module\Settings
                 "bool",
                 null,
                 "Setting to true disables the module",
+            ),
+            "IncludeInMobile" => new SettingsProperty(
+                true,
+                "bool",
+                null,
+                "If true, the module is used in mobile version of the interface",
             ),
         ];
     }
